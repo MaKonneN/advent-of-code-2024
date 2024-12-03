@@ -5,6 +5,7 @@ fn main() {
     let file_path = "./day1/input.txt";
 
     let Ok(file) = File::open(file_path) else {
+        println!("Error on file open");
         return;
     };
 
@@ -12,8 +13,8 @@ fn main() {
         .lines()
         .flatten()
         .filter_map(|line| {
-            let mut token = line.split_whitespace();
-            match (token.next(), token.next()) {
+            let mut tokens = line.split_whitespace();
+            match (tokens.next(), tokens.next()) {
                 (Some(a), Some(b)) => match (a.parse::<i32>(), b.parse::<i32>()) {
                     (Ok(a), Ok(b)) => Some((a, b)),
                     _ => None,
@@ -66,5 +67,5 @@ fn main() {
         }
     }
 
-    println!("{sum} {similarity}");
+    println!("Sum:{sum} Similarity:{similarity}");
 }
