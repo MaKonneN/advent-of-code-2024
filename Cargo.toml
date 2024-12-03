@@ -1,0 +1,7 @@
+[workspace]
+members = ["day1"]
+resolver = "2"
+
+[workspace.dependencies]
+# internal dependencies
+day1 = { path = "day1" }
